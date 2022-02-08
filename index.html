@@ -6,15 +6,15 @@
 <script src="js/aframe-multisrc-component.js"></script>
 <body style="margin: 0px; overflow: hidden;">
 
-<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: true;">
+<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
 
     <a-assets>
-		<img id="earth-sphere" src="images/earth-sphere.jpg" />
         <img id="xpos" src="images/box-sides/1.jpeg">
         <img id="xneg" src="images/box-sides/2.jpeg">
         <img id="ypos" src="images/box-sides/5.jpg">
         <img id="zpos" src="images/box-sides/3.jpeg">
         <img id="zneg" src="images/box-sides/4.jpeg">
+        <a-asset-item id="tree" src="models/heart.gltf"></a-asset-item>
 	</a-assets>
 
     <!-- 
@@ -27,6 +27,14 @@
                multisrc="srcs:#xpos,#xneg,#ypos,#yneg,#zpos,#zneg"
                material="transparent: true; opacity: 0.95; side: double;">
         </a-box>
+    </a-marker>
+    
+    <a-marker type="pattern" url="data/kanji.patt">
+        <a-entity   position="0 500 0" 
+                    rotation="0 0 0"
+                    scale="0.10 0.10 0.10"
+                    gltf-model="#tree" >
+        </a-entity>
     </a-marker>
     
     <a-entity camera></a-entity>
